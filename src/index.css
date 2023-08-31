@@ -1,0 +1,59 @@
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+.app {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 25vh;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+/* Additional styles for the first card */
+.app .card:first-child {
+  position: relative;
+  background-color: #E3E4FA;
+}
+
+.app .card:first-child h2 {
+  font-size: 32px; /* Greater font size */
+  color: #007bff; /* Blue color */
+}
+
+.app .card:first-child p {
+  font-size: 14px; /* Smaller font size */
+  color: black; /* Black color */
+}
+
+.app .card:first-child span.usd {
+  font-size: 12px; /* Adjust font size */
+  color: black; /* Black color */
+}
+.app .card:nth-child(2) {
+  background-color: #14131405; /* Change background color */
+  width: 300px; /* Change width */
+}
+
+.App {
+  display:inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh; 
+  width: 100%; 
+  max-width: 100%;
+  border: 1px solid mediumblue;
+  margin: auto;
+}
