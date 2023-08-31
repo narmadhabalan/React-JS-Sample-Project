@@ -5,24 +5,17 @@ import {US,IN,GB,FR, SA, BA, LI} from 'country-flag-icons/react/3x2';
 import { IoEllipsisVerticalCircleSharp, IoPencil, IoAdd, IoTrash } from 'react-icons/io5';
 import { BsArrowDownUp} from "react-icons/bs";
 import { useState,useEffect } from 'react';
-import {TransactionDetails} from './TransactionDetails';
 import { useNavigate } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TransactionDetailsPage from './TransactionDetailsPage';
-import Content from './Content';
 
 const TransactionTable = ({ transactions }) => {
   const [sortedColumn, setSortedColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState(1);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedTransaction, setSelectedTransaction] = useState(null);
   const navigate = useNavigate();
 
-  // Helper function to get a random flag component
   function getRandomFlagComponent() {
     const flagComponents = [
     US,IN,GB,FR, SA, BA, LI
-      // Add more flag components here
     ];
     const randomIndex = Math.floor(Math.random() * flagComponents.length);
     return flagComponents[randomIndex];
@@ -60,17 +53,7 @@ const TransactionTable = ({ transactions }) => {
       return valueA.localeCompare(valueB) * sortDirection;
     }
   });
-  
-  // const handleRowClick = (transaction) => {
-  //   console.log('Clicked transaction:', transaction);
-  //   setSelectedTransaction(transaction);
-  // };
 
-  // useEffect(() => {
-  //   if (selectedTransaction) {
-  //     navigate(`/transaction-details/${selectedTransaction.id}`);
-  //   }
-  // }, [navigate, selectedTransaction]);
   const handleRowClick = (transaction) => {
     console.log('Clicked transaction:', transaction);
     window.location.href = `/transaction-details/${transaction.id}`;
@@ -153,13 +136,13 @@ const TransactionTable = ({ transactions }) => {
               <td>
               {React.createElement(getRandomFlagComponent(), {
                 size: 10,
-                style: { marginRight: '2px', width: '40', height:'30' } 
+                style: { marginRight: '2px', width: '30', height:'20' } 
               })}{/* Display random flag */}
                 {transaction.payer}</td>
               <td>
               {React.createElement(getRandomFlagComponent(), {
                 size: 10,
-                style: { marginRight: '2px', width: '40', height:'30' }
+                style: { marginRight: '2px', width: '30', height:'20' }
               })}{/* Display random flag */}
                 {transaction.payee}</td>
               <td>&#x20B9;{transaction.amount.toLocaleString()}</td>
@@ -180,7 +163,8 @@ const TransactionTable = ({ transactions }) => {
                    <IoEllipsisVerticalCircleSharp
                     size={30}
                     color="#D3D3D3"
-                    onClick={toggleDropdown}
+                    onMouseEnter={toggleDropdown}  // Show dropdown on mouse enter
+                    onMouseLeave={toggleDropdown}
                   />
                   {showDropdown && (
                     <div className="dropdown-content">
@@ -195,7 +179,6 @@ const TransactionTable = ({ transactions }) => {
           ))}
         </tbody>
       </table>
-      {/* {selectedTransaction && <TransactionDetails transaction={selectedTransaction} />} */}
     </div>
     
   );

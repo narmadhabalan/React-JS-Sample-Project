@@ -3,6 +3,7 @@
     width: 106.5%;
     overflow-x: auto;
     justify-content: center;
+    padding-top:  50px;
   }
   
   table {
@@ -64,13 +65,13 @@
     display: block;
   }
   .column-name {
-    margin-right: 10px; /* Adjust margin as needed */
+    margin-right: 10px; 
   }
   
   .sort-icon {
     display: inline-block;
     vertical-align:middle;
-    transition: transform 0.3s; /* Add a smooth transition */
+    transition: transform 0.3s;
   }
   
   .rotate180 {

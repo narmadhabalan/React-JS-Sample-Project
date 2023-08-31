@@ -4,7 +4,7 @@ const Header = () => {
   return (
       <header>
         <h1>
-        To Do List
+        Transaction Details
       </h1>
     </header>
   )

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { dummyTransactionsdata } from './dummyTransactionDatas'; // Your data source
+import { dummyTransactionsdata } from './dummyTransactionDatas'; 
 import { TransactionDetails } from './TransactionDetails';
-import { EditableTransactionForm } from './EditableTransactionForm'; // Your existing TransactionDetails component
+import { EditableTransactionForm } from './EditableTransactionForm'; 
+import { Button, ButtonGroup} from 'react-bootstrap';
 
 const TransactionDetailsPage = ({setIsTransactionDetailsPage}) => {
   const { id } = useParams();
@@ -31,7 +32,7 @@ const TransactionDetailsPage = ({setIsTransactionDetailsPage}) => {
 
     fetchTransactionDetails();
     return () => {
-        setIsTransactionDetailsPage(false); // Set the flag back to false when leaving the details page
+        setIsTransactionDetailsPage(false); 
       };
     }, [id, setIsTransactionDetailsPage]);
 
@@ -40,15 +41,12 @@ const TransactionDetailsPage = ({setIsTransactionDetailsPage}) => {
       };
     
       const handleSaveClick = (updatedTransaction) => {
-        // Update the transaction data in the main array
       
         const updatedTransactions = dummyTransactionsdata.map((t) =>
           t.id === updatedTransaction.id ? updatedTransaction : t
         );
       
-        // Replace dummyTransactionsdata with updatedTransactions in your data source
-      
-        setTransaction(updatedTransactions); // Update the currently displayed transaction
+        setTransaction(updatedTransactions); 
         setIsEditMode(false);
       };
       
@@ -63,17 +61,19 @@ const TransactionDetailsPage = ({setIsTransactionDetailsPage}) => {
             <div>
               {isEditMode ? (
                 <EditableTransactionForm
-                    transaction={transaction} // Pass the transaction data here
+                    transaction={transaction} 
                     onSave={handleSaveClick}
                     onCancel={handleCancelClick}
-                    transactions={dummyTransactionsdata} // Pass the transactions array here
-                    setIsEditMode={setIsEditMode} // Pass the setIsEditMode function here
+                    transactions={dummyTransactionsdata} 
+                    setIsEditMode={setIsEditMode} 
                 />
 
               ) : (
                 <div>
                   <TransactionDetails transaction={transaction} />
+                  <ButtonGroup>
                   <Button onClick={handleEditClick}>Edit</Button>
+                  </ButtonGroup>
                 </div>
               )}
             </div>

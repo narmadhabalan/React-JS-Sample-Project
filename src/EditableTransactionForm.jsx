@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Form} from 'react-bootstrap';
 
 export const EditableTransactionForm = ({transaction,transactions,onSave, onCancel, setIsEditMode }) => {
   const [editedTransaction, setEditedTransaction] = useState(transaction);
@@ -22,19 +23,73 @@ export const EditableTransactionForm = ({transaction,transactions,onSave, onCanc
     setTransactions(updatedTransactions);
     setIsEditMode(false);
   };
-
-  return (
+return (
     <div>
-      {/* Render form fields based on your requirements */}
-      <input
-        type="text"
-        name="transactionDate"
-        value={editedTransaction.transactionDate}
-        onChange={handleInputChange}
-      />
-      {/* ... other input fields */}
-      <Button onClick={handleSaveClick}>Save</Button>
-      <Button onClick={onCancel}>Cancel</Button>
+      <Form>
+        <Form.Group controlId="transactionDate">
+          <Form.Label>Transaction Date</Form.Label>
+          <Form.Control
+            type="text"
+            name="transactionDate"
+            value={editedTransaction.transactionDate}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="invoiceNumber">
+          <Form.Label>Invoice Number</Form.Label>
+          <Form.Control
+            type="text"
+            name="invoiceNumber"
+            value={editedTransaction.invoiceNumber}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="payer">
+          <Form.Label>Payer</Form.Label>
+          <Form.Control
+            type="text"
+            name="payer"
+            value={editedTransaction.payer}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="payee">
+          <Form.Label>Payee</Form.Label>
+          <Form.Control
+            type="text"
+            name="payee"
+            value={editedTransaction.payee}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="amount">
+          <Form.Label>Amount</Form.Label>
+          <Form.Control
+            type="text"
+            name="amount"
+            value={editedTransaction.amount}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="amount">
+          <Form.Label>USD Equivalent</Form.Label>
+          <Form.Control
+            type="text"
+            name="usdEquivalent"
+            value={editedTransaction.usdEquivalent}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+      </Form>
+
+      <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between' }}>
+        <Button variant="primary" onClick={handleSaveClick}>
+          Save
+        </Button>
+        <Button variant="secondary" onClick={onCancel}>
+          Cancel
+        </Button>
+      </div>
     </div>
   );
 };

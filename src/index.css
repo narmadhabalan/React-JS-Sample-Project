@@ -4,7 +4,14 @@
   margin: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  width: 400px;
+  height: 200px;
+}
+.icon{
+  font-size: 1rem;
+  position: relative;
+  width:'30px';
+  height:'40px';
 }
 
 .app {
@@ -13,7 +20,6 @@
   align-items: flex-start;
   height: 25vh;
 }
-
 h2 {
   margin-top: 0;
 }
@@ -28,22 +34,25 @@ p {
 }
 
 .app .card:first-child h2 {
-  font-size: 32px; /* Greater font size */
-  color: #007bff; /* Blue color */
+  font-size: 32px; 
+  color: #007bff; 
 }
 
 .app .card:first-child p {
-  font-size: 14px; /* Smaller font size */
-  color: black; /* Black color */
+  font-size: 14px; 
+  color: black; 
 }
 
 .app .card:first-child span.usd {
-  font-size: 12px; /* Adjust font size */
-  color: black; /* Black color */
+  font-size: 12px; 
+  color: black; 
 }
 .app .card:nth-child(2) {
-  background-color: #14131405; /* Change background color */
-  width: 300px; /* Change width */
+  background-color: rgb(239, 220, 231); 
+}
+.app .card:nth-child(3) {
+  background-color: rgb(239, 220, 231); 
+  height: 150px;
 }
 
 .App {
